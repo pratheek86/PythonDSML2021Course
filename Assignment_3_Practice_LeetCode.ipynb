@@ -1,0 +1,115 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "ordered-landscape",
+   "metadata": {},
+   "source": [
+    "2. Add Two Numbers\n",
+    "\n",
+    "You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.\n",
+    "\n",
+    "You may assume the two numbers do not contain any leading zero, except the number 0 itself.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "north-token",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Definition for singly-linked list.\n",
+    "class ListNode:\n",
+    "     def __init__(self, val=0, next=None):\n",
+    "         self.val = val\n",
+    "         self.next = next\n",
+    "class Solution:\n",
+    "    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:\n",
+    "        la,lb=\"\",\"\"\n",
+    "        while(l1!=None):\n",
+    "            la+=str(l1.val)\n",
+    "            l1=l1.next\n",
+    "        while(l2!=None):\n",
+    "            lb+=str(l2.val)\n",
+    "            l2 = l2.next\n",
+    "        la,lb=int(la[::-1]),int(lb[::-1])\n",
+    "        ans = str(la+lb)\n",
+    "        #ans=ans[::-1]\n",
+    "        print(ans)\n",
+    "        head = ListNode(ans[0])\n",
+    "        for i in range(1,len(ans)):\n",
+    "            ls= ListNode(ans[i],head)\n",
+    "            head = ls\n",
+    "        return head"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "increasing-crystal",
+   "metadata": {},
+   "source": [
+    "Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]\n",
+    "Output: [8,9,9,9,0,0,0,1]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fuzzy-wyoming",
+   "metadata": {},
+   "source": [
+    "4. Median of Two Sorted Arrays\n",
+    "\n",
+    "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.\n",
+    "\n",
+    " "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "designing-montreal",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Solution:\n",
+    "    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:\n",
+    "        ans = sorted(nums1+nums2)\n",
+    "        if(len(ans)%2!=0):\n",
+    "            return ans[len(ans)//2]\n",
+    "        return (ans[len(ans)//2-1]+ans[len(ans)//2])/2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "caring-gateway",
+   "metadata": {},
+   "source": [
+    "Input: nums1 = [1,2], nums2 = [3,4]\n",
+    "Output: 2.50000\n",
+    "Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
